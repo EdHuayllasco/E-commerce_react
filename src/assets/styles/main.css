@@ -1,0 +1,36 @@
+body {
+    background: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btn{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.vertical-menu__container{
+    display: none !important;
+}
+
+/* Pequeño: Hasta 599px */
+/* @media (max-width: 599px) {
+} */
+
+/* Mediano: Desde 600px hasta 991px */
+/* @media (min-width: 600px) and (max-width: 991px) {
+} */
+
+/* Grande: Desde 992px en adelante */
+@media (min-width: 992px) {
+    .menu-button{
+        display: none !important;
+    }
+    .vertical-menu__container{
+        display: flex !important;
+    }
+    
+    
+}
+
+/* @import url('./cart.css'); */
