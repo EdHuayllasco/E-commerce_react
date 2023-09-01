@@ -2,17 +2,22 @@ import { Container, Row, Col, Image, Button} from "react-bootstrap"
 import { useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { CartControlButtons } from "../components/CartControlButtons";
+import { NotFound } from "../components/NotFound";
 
 export const ItemDetailContainer = () => {
 
-  const { 
-    state: {
-      description,
+  const { state } = useLocation();
+
+  if (!state) return <NotFound/>;
+
+  const {
+    description,
       price,
       title,
       image,
       id
-  }} = useLocation();
+  } = state;
+
 
   const { 
     getQuantityItemById,
@@ -46,16 +51,17 @@ export const ItemDetailContainer = () => {
               : <Button
                   className="w-100"
                   onClick = { 
-                      () => addItem(id, {
-                        title, price, image, description
+                    () => addItem(id, {
+                      title, price, image, description
                     })}
-                > 
-                  Add to cart 
-                </Button>
+                    > 
+              Add to cart 
+            </Button>
             }
           </div>
         </Col>
       </Row>
     </Container>
+    
   )
 }
