@@ -23,7 +23,6 @@ export const ItemListContainer = ({ greeting = 'Wellcome to my page '}) => {
     hasError
   } = useFetch(url);
 
-  console.log(data);
     
   return (
   

@@ -1,9 +1,7 @@
 import { 
-  Button,
   Container, 
   Nav, 
   Navbar as NavbarBS, 
-  NavLink,
   Offcanvas
 } from "react-bootstrap";
 
@@ -11,6 +9,7 @@ import { CartWidget } from './CartWidget';
 import { MenuIcon } from "./Icons";
 import '../assets/styles/main.css';
 import { useState } from "react";
+import { NavLink } from 'react-router-dom';
 
 
 export const Navbar = () => {
@@ -28,19 +27,19 @@ export const Navbar = () => {
         <NavbarBS.Brand href="/">4everStore</NavbarBS.Brand>
         <Nav className="me-auto vertical-menu__container">
           
-          <Nav.Link href = "/" as = { NavLink }>
+          <Nav.Link to = "/" as = { NavLink }>
             ALL
           </Nav.Link>
-          <Nav.Link href = "/category/women's clothing" as = { NavLink }>
+          <Nav.Link to = "/category/women's clothing" as = { NavLink }>
             WOWEN
           </Nav.Link>
-          <Nav.Link href = "/category/men's clothing" as = { NavLink }>
+          <Nav.Link to = "/category/men's clothing" as = { NavLink }>
             MEN
           </Nav.Link>
-          <Nav.Link href = "/category/electronics" as = { NavLink }>
+          <Nav.Link to = "/category/electronics" as = { NavLink }>
             ELECTRONIC
           </Nav.Link>
-          <Nav.Link href = "/category/jewelery" as = { NavLink }>
+          <Nav.Link to = "/category/jewelery" as = { NavLink }>
             JEWELERY
           </Nav.Link>
         </Nav>
@@ -57,25 +56,25 @@ export const Navbar = () => {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <NavbarBS.Brand href="/">4everStore</NavbarBS.Brand>
+            <NavbarBS.Brand href = "/">4everStore</NavbarBS.Brand>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <Nav className="me-auto">
           
-          <Nav.Link href = "/" as = { NavLink }>
+          <Nav.Link to = "/" as = { NavLink }>
             ALL
           </Nav.Link>
-          <Nav.Link href = "/category/women's clothing" as = { NavLink }>
+          <Nav.Link to = "/category/women's clothing" as = { NavLink }>
             WOWEN
           </Nav.Link>
-          <Nav.Link href = "/category/men's clothing" as = { NavLink }>
+          <Nav.Link to = "/category/men's clothing" as = { NavLink }>
             MEN
           </Nav.Link>
-          <Nav.Link href = "/category/electronics" as = { NavLink }>
+          <Nav.Link to = "/category/electronics" as = { NavLink }>
             ELECTRONIC
           </Nav.Link>
-          <Nav.Link href = "/category/jewelery" as = { NavLink }>
+          <Nav.Link to = "/category/jewelery" as = { NavLink }>
             JEWELERY
           </Nav.Link>
         </Nav>
