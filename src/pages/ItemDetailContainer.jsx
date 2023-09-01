@@ -28,39 +28,37 @@ export const ItemDetailContainer = () => {
 
 
   return (
-    <Container style={{ background: 'white'}} className = "p-3 mt-3">
-      <Row className="m-4">
-        <Col>
-          <Image src={image} style={{ width: '80%'}}/>
-        </Col>
-        <Col className="p-5">
-          <h4>{title}</h4>
-          <p>{ description }</p>
+    <Container  className = "py-4 mt-3 d-flex detail-item__container">
+      <Col className=" d-flex justify-content-center">
+        <Image src={image} style={{ width: '60%'}}/>
+      </Col>
+      <Col className="p-5">
+        <h4>{title}</h4>
+        <p>{ description }</p>
 
-          <h3>{price} $</h3>
-          <div className="d-flex w-100 justify-content-between gap-3" >
-            {
-              quantityItem > 0
-              ? <CartControlButtons item = {{
-                  quantityItem,
-                  title,
-                  price,
-                  image,
-                  id,
-                }}/>
-              : <Button
-                  className="w-100"
-                  onClick = { 
-                    () => addItem(id, {
-                      title, price, image, description
-                    })}
-                    > 
-              Add to cart 
-            </Button>
-            }
-          </div>
-        </Col>
-      </Row>
+        <h3>{price} $</h3>
+        <div className="d-flex w-100 justify-content-between gap-3" >
+          {
+            quantityItem > 0
+            ? <CartControlButtons item = {{
+                quantityItem,
+                title,
+                price,
+                image,
+                id,
+              }}/>
+            : <Button
+                className="w-100"
+                onClick = { 
+                  () => addItem(id, {
+                    title, price, image, description
+                  })}
+                  > 
+            Add to cart 
+          </Button>
+          }
+        </div>
+      </Col>
     </Container>
     
   )
