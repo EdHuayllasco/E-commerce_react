@@ -47,7 +47,7 @@ export const Navbar = () => {
         <div>
           <CartWidget />
           <button 
-            className = "btn menu-button"
+            className = "button menu-button"
             onClick = { handleShow }>
               <MenuIcon/>
           </button>

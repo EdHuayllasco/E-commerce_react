@@ -14,7 +14,7 @@ export const CartWidget = ({ cartQuantity }) => {
         <>
             { quantityItems > 0 && 
                 <button
-                className = "btn"
+                className = "button"
                 onClick={goToCart}
                 style={{ position: "relative"}}
 

@@ -3,23 +3,33 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-.btn{
+.button{
     border: none;
     outline: none;
     background: none;
+    border-radius: 50%;
+    padding: .5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.button:hover {
+    background: gray;
 }
 
 .vertical-menu__container{
     display: none !important;
 }
 
-/* Pequeño: Hasta 599px */
-/* @media (max-width: 599px) {
-} */
+.detail-item__container{
+    flex-direction: column;
+}
 
-/* Mediano: Desde 600px hasta 991px */
-/* @media (min-width: 600px) and (max-width: 991px) {
-} */
+@media (min-width: 756px) {
+    .detail-item__container{
+        flex-direction: row;
+    }
+}
+
 
 /* Grande: Desde 992px en adelante */
 @media (min-width: 992px) {
@@ -31,6 +41,5 @@ body {
     }
     
     
+    
 }
-
-/* @import url('./cart.css'); */
