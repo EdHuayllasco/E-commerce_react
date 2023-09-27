@@ -1,5 +1,6 @@
 import { 
   Container, 
+  Image, 
   Nav, 
   Navbar as NavbarBS, 
   Offcanvas
@@ -7,12 +8,14 @@ import {
 
 import { CartWidget } from './CartWidget';
 import { MenuIcon } from "./Icons";
-import '../assets/styles/main.css';
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
+import '../assets/styles/main.css';
+
+import logo from '../assets/images/logo.png';
 
 
-export const Navbar = () => {
+export const Navbar = ({categories}) => {
 
   const [show, setShow] = useState(false);
 
@@ -20,28 +23,24 @@ export const Navbar = () => {
   const handleShow = () => setShow(true);
 
 
+
   return (
 
-    <NavbarBS bg="dark" data-bs-theme="dark">
+    <NavbarBS className="shadow">
       <Container>
-        <NavbarBS.Brand href="/">4everStore</NavbarBS.Brand>
+        <NavbarBS.Brand href="/">
+          <Image src = {logo} style={{
+            height: '50px'
+          }}/>
+        </NavbarBS.Brand>
         <Nav className="me-auto vertical-menu__container">
-          
-          <Nav.Link to = "/" as = { NavLink }>
-            ALL
-          </Nav.Link>
-          <Nav.Link to = "/category/women's clothing" as = { NavLink }>
-            WOWEN
-          </Nav.Link>
-          <Nav.Link to = "/category/men's clothing" as = { NavLink }>
-            MEN
-          </Nav.Link>
-          <Nav.Link to = "/category/electronics" as = { NavLink }>
-            ELECTRONIC
-          </Nav.Link>
-          <Nav.Link to = "/category/jewelery" as = { NavLink }>
-            JEWELERY
-          </Nav.Link>
+          {
+            categories.map(({description, id, key}) => (
+              <Nav.Link key={id} to = {key == '' ? `/${key}` : `/category/${key}`} as = { NavLink }>
+                {description}
+              </Nav.Link>
+            ))
+          }
         </Nav>
         <div>
           <CartWidget />
@@ -56,27 +55,20 @@ export const Navbar = () => {
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <NavbarBS.Brand href = "/">4everStore</NavbarBS.Brand>
+          <Image src = {logo} style={{
+            height: '50px'
+          }}/>
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <Nav className="me-auto">
-          
-          <Nav.Link to = "/" as = { NavLink }>
-            ALL
-          </Nav.Link>
-          <Nav.Link to = "/category/women's clothing" as = { NavLink }>
-            WOWEN
-          </Nav.Link>
-          <Nav.Link to = "/category/men's clothing" as = { NavLink }>
-            MEN
-          </Nav.Link>
-          <Nav.Link to = "/category/electronics" as = { NavLink }>
-            ELECTRONIC
-          </Nav.Link>
-          <Nav.Link to = "/category/jewelery" as = { NavLink }>
-            JEWELERY
-          </Nav.Link>
+          {
+            categories.map(({description, id, key}) => (
+              <Nav.Link key={id} to = {key == '' ? `/${key}` : `/category/${key}`} as = { NavLink }>
+                {description}
+              </Nav.Link>
+            ))
+          }
         </Nav>
         </Offcanvas.Body>
       </Offcanvas>
