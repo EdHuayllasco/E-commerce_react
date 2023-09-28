@@ -1,3 +1,4 @@
+import { AuthProvider } from './context/AuthContext'
 import { CartProvider } from './context/CartContext'
 import { MainRoutes } from './routes/MainRoutes'
 
@@ -5,9 +6,11 @@ import { MainRoutes } from './routes/MainRoutes'
 function App() {
 
   return (
-    <CartProvider>
-      <MainRoutes/>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <MainRoutes/>
+      </CartProvider>
+    </AuthProvider>
   )
 }
 
