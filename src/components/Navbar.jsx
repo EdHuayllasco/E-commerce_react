@@ -26,7 +26,7 @@ export const Navbar = ({categories}) => {
 
   return (
 
-    <NavbarBS className="shadow">
+    <NavbarBS className="shadow bg-white">
       <Container>
         <NavbarBS.Brand href="/">
           <Image src = {logo} style={{
