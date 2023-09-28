@@ -31,7 +31,7 @@ export const Navbar = ({categories}) => {
   return (
 
     <NavbarBS className="shadow bg-white">
-      <Container className="position-relative">
+      <Container fluid className="position-relative">
       <button 
             className = "menu-button p-1"
             onClick = { handleShow }>
