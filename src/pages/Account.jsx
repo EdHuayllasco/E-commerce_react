@@ -1,5 +1,5 @@
 import  '../assets/styles/pages/account.css';
-import {Tab, Tabs} from 'react-bootstrap';
+import { Tab, Tabs} from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
 import { useEffect, useState } from 'react';
 import { OrderList } from '../components/OrderList';
@@ -53,6 +53,8 @@ export const Account = () => {
 
     const getFavoriteListProducts = async() => {
         let products = []
+        console.log(favorites);
+
         for (const favorite of favorites) {
             const {
                 name,
@@ -67,7 +69,8 @@ export const Account = () => {
                 price,
                 discount,
                 id})
-        }
+            }
+            console.log(products);
         return products;
 
     }
