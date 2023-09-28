@@ -1,35 +1,28 @@
-import React from 'react'
 import { ItemList } from '../components/ItemList'
-import { useFetch } from '../hooks/useFetch';
-import { URL_API } from '../utils/constants';
 import { useParams } from 'react-router-dom';
-import { Col, Container, Spinner, Row } from 'react-bootstrap';
-import { NotFound } from '../components/NotFound';
+import { useFirestore } from '../hooks/useFirestore';
+import { getProductsByCategory } from '../firebase/items';
+import { Loading } from '../components/Loading';
 
 export const ItemListContainer = () => {
 
     const { categoryId } = useParams();
 
-    const url = (!categoryId) ?  URL_API : `${URL_API}/category/${categoryId}`
+    const { isLoading, data, hasError} = useFirestore(getProductsByCategory, categoryId);
 
-    const {data, isLoading} = useFetch(url);
-
+    if(isLoading) return <Loading/>
+    
     return (
-        <Container className='d-flex justify-content-center  py-4'>
-        {
-          isLoading
-          ?  <Spinner animation="border" variant="info" />
-          : ( data?.length > 0) 
-            ? <Container>
-                <Col>
-                  <Row>
-                  <h4 className='text-center text-uppercase my-5'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
-                  </Row>
-                </Col>
-                <ItemList data={data} />
-              </Container>
-            : <NotFound/>
-        }
-      </Container>
+        <>
+            <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
+            <div className='items-container'>
+              {
+                (data?.length > 0)
+                  ? <ItemList data={data}/>
+                  : <NotFound/>
+              }
+            </div>
+        </>
+  
     )
 }
