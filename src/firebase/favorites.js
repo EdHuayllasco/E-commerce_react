@@ -1,5 +1,5 @@
 import { addDoc, collection, deleteDoc, doc, getDocs, query, where } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "./firebaseConfig";
 
 const addFavoriteProduct = async (productId,userId) => {
     try {
