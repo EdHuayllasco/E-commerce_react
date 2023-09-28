@@ -7,10 +7,10 @@ import {
 } from "react-bootstrap";
 
 import { CartWidget } from './CartWidget';
-import { MenuIcon } from "./Icons";
+import { CustomIcon } from "./Icons";
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import '../assets/styles/main.css';
+import '../assets/styles/components/navbar.css';
 
 import logo from '../assets/images/logo.png';
 
@@ -27,13 +27,18 @@ export const Navbar = ({categories}) => {
   return (
 
     <NavbarBS className="shadow bg-white">
-      <Container>
+      <Container className="position-relative">
+      <button 
+            className = "menu-button p-1"
+            onClick = { handleShow }>
+              <CustomIcon name="menu"/>
+      </button>
         <NavbarBS.Brand href="/">
           <Image src = {logo} style={{
             height: '50px'
           }}/>
         </NavbarBS.Brand>
-        <Nav className="me-auto vertical-menu__container">
+        <Nav className="me-auto list-navlink">
           {
             categories.map(({description, id, key}) => (
               <Nav.Link key={id} to = {key == '' ? `/${key}` : `/category/${key}`} as = { NavLink }>
@@ -44,11 +49,6 @@ export const Navbar = ({categories}) => {
         </Nav>
         <div>
           <CartWidget />
-          <button 
-            className = "button menu-button"
-            onClick = { handleShow }>
-              <MenuIcon/>
-          </button>
         </div>
       </Container>
 

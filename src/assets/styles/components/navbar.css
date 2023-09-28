@@ -1,0 +1,30 @@
+
+.list-navlink{
+    display: none;
+}
+
+.menu-button{
+    border: none;
+    background: none;
+    border-radius: 10px;
+}
+.menu-button:hover{
+    background: whitesmoke;
+}
+  @media (min-width: 992px) {
+    .menu-button{
+      visibility: hidden;
+      display: none;
+    }
+    
+    .navbar-brand__container{
+      width: auto;
+    }
+    .cart-left__container{
+      visibility: hidden;
+    }
+    .list-navlink{
+      display: flex;
+    
+    }
+  }
