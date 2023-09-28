@@ -17,7 +17,7 @@ export const Home = () => {
 
     return (
       <>
-          <h4 className='text-center text-uppercase my-5'> All products</h4>
+          <h4 className='text-center text-uppercase my-5'> Todos los productos</h4>
           <div className='items-container'>
           {
             ( data?.length > 0) 
