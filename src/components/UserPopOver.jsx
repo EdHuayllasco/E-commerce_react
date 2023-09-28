@@ -46,14 +46,14 @@ export const UserPopOver = () => {
           onClick={handleMouseOver}>
           <CustomIcon name = "user"/>
       </div>
-        <div  className={`${open ? 'd-block': 'd-none'} position-absolute z-50 shadow rounded top-10 end-0 bg-white`}
+        <div  className={`dropdown-container  ${open ? 'd-block': 'd-none'} position-absolute shadow rounded top-10 end-0 bg-white`}
         >
           <div className="py-2 px-4 border-bottom">
               { email}
           </div>
             
             <ul
-            className='m-0 ul-options border'  
+            className='m-0 ul-options'  
             style={{
               listStyle: 'none',
               paddingLeft:0,
@@ -65,13 +65,10 @@ export const UserPopOver = () => {
               <li className='py-2 px-4' role='button' onClick={() => goTo('favorites')}>
                 <CustomIcon name = "favorite" size={14}/> Mis favoritos
               </li>
+              <li className='py-2 px-4' role='button' onClick={signOff}>
+                <CustomIcon name = "logout" size={14}/> Cerrar Sesión
+              </li>
             </ul>
-            <div 
-              className="py-2 border-top" 
-              onClick={signOff}>
-              <a href="#" 
-                className="px-4">Cerrar Sesion</a>
-            </div>
         </div>
 
     </div>

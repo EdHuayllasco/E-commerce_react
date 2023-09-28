@@ -1,4 +1,7 @@
-.ul-options li:hover{
+.dropdown-container{
+    z-index: 50 !important;
+}
+.dropdown-container .ul-options li:hover{
     background: whitesmoke;
     color: var(--mi-color);
 }
