@@ -15,7 +15,7 @@ export const UserPopOver = () => {
   const email = providerData[0].email;
 
   const handleMouseOver = () => {
-    setOpen(true);
+    setOpen(!open);
   }
 
   const handleMouseDown = (e) => {
@@ -44,9 +44,9 @@ export const UserPopOver = () => {
     <div className='position-relative' ref={dropDownRef}>   
       <div 
           onClick={handleMouseOver}>
-            <CustomIcon name = "user"/>
+          <CustomIcon name = "user"/>
       </div>
-        <div  className={`${open ? 'visible': 'invisible'} position-absolute shadow rounded top-10 end-0 bg-white`}
+        <div  className={`${open ? 'd-block': 'd-none'} position-absolute z-50 shadow rounded top-10 end-0 bg-white`}
         >
           <div className="py-2 px-4 border-bottom">
               { email}
