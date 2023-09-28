@@ -1,15 +1,14 @@
-import  '../../assets/styles/account.css';
-import Tab from 'react-bootstrap/Tab';
-import Tabs from 'react-bootstrap/Tabs';
-import { useAuth } from '../../context/AuthContext';
+import  '../assets/styles/pages/account.css';
+import {Tab, Tabs} from 'react-bootstrap';
+import { useAuth } from '../context/AuthContext';
 import { useEffect, useState } from 'react';
-import { getOrderList } from '../../firebase/orders';
 import { OrderList } from '../components/OrderList';
-import { CustomIcon } from '../../components/Icons';
-import { getProductById } from '../../firebase/products';
+import { CustomIcon } from '../components/Icons';
+import { getOrderList } from '../firebase/orders';
+import { getProductById } from '../firebase/items';
 import { WishList } from '../components/WishList';
 import { useLocation, useParams } from 'react-router-dom';
-import { Loading } from '../../components/Loading';
+import { Loading } from '../components/Loading';
 
 
 export const Account = () => {
