@@ -1,8 +1,9 @@
+import '../assets/styles/pages/checkout.css';
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { createOrder } from "../firebase/orders";
-// import { CheckoutForm } from "../components/CheckoutForm";
-// import { PurchaseSummary } from "../components/PurchaseSummary";
+import { CheckoutForm } from "../components/CheckoutForm";
+import { PurchaseSummary } from "../components/PurchaseSummary";
 
 export const Checkout = () => {
   const { 
@@ -32,10 +33,10 @@ export const Checkout = () => {
 
   return (
     <div className="checkout-container">
-      {/* <CheckoutForm
+      <CheckoutForm
         generateOrder =  {generateOrder}
       />
-      <PurchaseSummary/> */}
+      <PurchaseSummary/>
     </div>
   )
 }
