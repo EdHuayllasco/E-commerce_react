@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useFirestore } from '../hooks/useFirestore';
 import { getProductsByCategory } from '../firebase/items';
 import { Loading } from '../components/Loading';
+import { NotFound } from '../components/NotFound';
 
 export const ItemListContainer = () => {
 

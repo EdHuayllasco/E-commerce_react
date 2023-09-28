@@ -1,29 +1,30 @@
 import { Col, Container, Row, Spinner } from 'react-bootstrap';
-import { URL_API } from '../utils/constants';
 import { ItemList } from '../components/ItemList';
-import { useFetch } from '../hooks/useFetch';
+import { Loading } from '../components/Loading';
+import { useParams } from 'react-router-dom';
+import { useFirestore } from '../hooks/useFirestore';
+import { getProductsByCategory } from '../firebase/items';
 
 
 export const Home = () => {
 
 
-    const {data, isLoading} = useFetch(URL_API);
+    const { categoryId } = useParams();
+
+    const { isLoading, data, hasError} = useFirestore(getProductsByCategory, categoryId);
+
+    if(isLoading) return <Loading/>
+
     return (
-        <Container className='d-flex justify-content-center  py-4'>
-        {
-          isLoading
-          ?  <Spinner animation="border" variant="info" />
-          : ( data?.length > 0) 
-            ? <Container>
-                <Col>
-                  <Row>
-                  <h4 className='text-center text-uppercase my-5'> All products</h4>
-                  </Row>
-                </Col>
-                <ItemList data={data} />
-              </Container>
-            : <NotFound/>
-        }
-      </Container>
+      <>
+          <h4 className='text-center text-uppercase my-5'> All products</h4>
+          <div className='items-container'>
+          {
+            ( data?.length > 0) 
+              ? <ItemList data={data} />
+              : <NotFound/>
+          }
+        </div>
+      </>
     )
 }
