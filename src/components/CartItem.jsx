@@ -1,7 +1,8 @@
-import { Image, Button } from "react-bootstrap";
-import { DeleteIcon } from "./Icons";
+import '../assets/styles/components/cartItem.css';
+import { Image} from "react-bootstrap";
+import { CustomIcon } from "./Icons";
 import { useCart } from "../context/CartContext";
-import { useNavigate, Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 export const CartItem = ({ 
   image, 
@@ -10,6 +11,8 @@ export const CartItem = ({
   description,
   id, 
   quantity,
+  priceWithDiscount,
+  discount
  }) => {
 
   const { 
@@ -20,61 +23,51 @@ export const CartItem = ({
 
   const navigate = useNavigate();
 
-  const goTo = () => {
-    navigate(`/item/${id}`,{ state : {
-      description,
-      price,
-      title,
-      image,
-      id
-    }});
-  }
+  const goTo = () => navigate(`/item/${id}`);
   
   return (
       <div 
-        className = "p-2 shadow-sm p-3 bg-white rounded cart-item d-flex"
+        className = "shadow-sm bg-white rounded d-flex position-relative product-cart"
       >
         <div 
-          className = "d-flex align-items-center justify-content-center cart-item__image"
-          style = {{ background: 'white'}}>
+          className = "producto-image-container">
             <Image 
               src={image}  
               onClick = { goTo }
               role="button"
             />
         </div >
-        <div className="d-flex cart-item__details ">
-        <div  className = "d-flex cart-item__title" >
-          <p onClick={ goTo } role="button">
+        <div className="product-details-container gap-3">
+          <h6 onClick={ goTo } className="product-title">
             {title}
-          </p>
-        </div>
-        <div className = "d-flex align-items-center " >
-          <p className="fst-italic fs-6 p-1 m-0 text-body-tertiary">
-            {price} $
-          </p>
-        </div>
-        <div className="d-flex align-items-center" >
-          <div className="d-flex justify-content-evenly align-items-center"> 
-            <Button
-              className="mx-2"
-              variant="outline-primary"
-              onClick={ () => removeItem(id)}
-            >
-              -
-            </Button>
-            {quantity}
-            <Button
-              className="mx-2"
-              variant="outline-primary"
-              onClick={ () => addItem(id)}
-              >
-                +
-            </Button>
-            <Button className="mr-1" onClick = { () => deleteItem(id) }><DeleteIcon/></Button>
+          </h6>
+          <div className = "d-flex align-items-start producto-price-container" >
+            <span>
+            S/ {priceWithDiscount} 
+            </span>
+            <span className="text-body-tertiary text-decoration-line-through">S/ {price}</span>
+            <small className="product-discount">{-discount}%</small>
           </div>
-        </div >
-          
+            <div className="counter"> 
+              <button
+                onClick={ () => removeItem(id)}
+              >
+                -
+              </button>
+              {quantity}
+              <button
+                onClick={ () => addItem(id)}
+                >
+                  +
+              </button>
+            </div>
+            <span className="product-price-discount">
+            S/ { Math.ceil(priceWithDiscount) * quantity }
+            </span>
+          <div
+            className="mr-1 p-2 pointer position-absolute end-0 top-0" onClick = { () => deleteItem(id) }>
+              <CustomIcon name="delete"/>
+            </div>
         </div>
       </div>
   )
