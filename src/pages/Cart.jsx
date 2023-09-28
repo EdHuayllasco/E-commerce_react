@@ -43,14 +43,14 @@ export const Cart = () => {
                           <h5 className='fw-bold'>S/ {totalPriceCart}</h5>
                       </div>
                       <div className="checkout-btn-container">
-                          <button 
+                          <Button 
+                            variant="secondary"
                             className='bt secundary-btn '
                             onClick={clearCart}
                           >
                             Vaciar carrito
-                          </button>
+                          </Button>
                           <Button 
-                            className="bt main-btn"
                             onClick = { () => navigate('/cart/checkout')}
                           >
                             Continuar al checkout

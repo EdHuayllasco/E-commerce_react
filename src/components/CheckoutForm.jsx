@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import {  FormGroup, FormControl, FormLabel } from 'react-bootstrap';
+import {  FormGroup, FormControl, FormLabel, Button } from 'react-bootstrap';
 import * as yup from 'yup';
 import { validateEmail, confirmEmail } from '../utils/validations';
 import { useAuth } from '../context/AuthContext';
@@ -134,8 +134,8 @@ export const CheckoutForm = ({
                   className='text-danger'
                   />
               </FormGroup>
-              <button type="submit" className='bt main-btn'>Realizar pedido
-              </button>
+              <Button type="submit" className='bt main-btn'>Realizar pedido
+              </Button>
           </Form>
         )}
       </Formik>
