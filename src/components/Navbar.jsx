@@ -1,5 +1,6 @@
 import '../assets/styles/components/navbar.css';
 import { 
+  Button,
   Container, 
   Image, 
   Nav, 
@@ -13,10 +14,13 @@ import { useState } from "react";
 import { NavLink } from 'react-router-dom';
 
 import logo from '../assets/images/logo.png';
+import { useAuth } from '../context/AuthContext';
+import { UserPopOver } from './UserPopOver';
 
 
 export const Navbar = ({categories}) => {
 
+  const {user, openModal } = useAuth();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -47,9 +51,18 @@ export const Navbar = ({categories}) => {
             ))
           }
         </Nav>
-        <div>
-          <CartWidget />
-        </div>
+        {
+          user 
+          ? 
+            <div className="d-flex gap-2">
+              <UserPopOver/>
+              <CartWidget />
+            </div>
+          : <Button
+              onClick={openModal}>
+              Iniciar Sesión 
+            </Button>
+        } 
       </Container>
 
       <Offcanvas show={show} onHide={handleClose}>
