@@ -1,8 +1,8 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import {  FormGroup, FormControl, FormLabel } from 'react-bootstrap';
 import * as yup from 'yup';
-import { validateEmail, confirmEmail } from '../../utils/validations';
-import { useAuth } from '../../context/AuthContext';
+import { validateEmail, confirmEmail } from '../utils/validations';
+import { useAuth } from '../context/AuthContext';
 
 
 export const CheckoutForm = ({
