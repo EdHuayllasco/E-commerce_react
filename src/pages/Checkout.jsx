@@ -14,7 +14,6 @@ export const Checkout = () => {
   const navigate = useNavigate();
 
   const generateOrder = (values) => {
-    console.log(values);
 
     const currentDate = new Date();
     const newOrder = {

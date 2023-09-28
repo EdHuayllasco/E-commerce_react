@@ -5,7 +5,6 @@ const createOrder = async (data, email) =>  {
     try {
         const docRef = collection(db, `orders/${email}/orders`);
         await addDoc(docRef, data);
-        console.log("Orden creada correctamente", docRef.id);
         return docRef.id
     } catch (error) {
         console.log('Error al crear orden', error);
