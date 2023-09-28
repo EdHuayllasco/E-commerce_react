@@ -1,6 +1,7 @@
 import '../assets/styles/components/item.css';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { FavoriteBtn } from './FavoriteBtn';
 
 export const Item = ({id, name, price, images, discount}) => {
   
@@ -40,6 +41,10 @@ export const Item = ({id, name, price, images, discount}) => {
             <span className='price-product'>S/{price}</span>
             <span className='price-discount'>S/{finalPrice}</span>
         </div>  
+        <div className='position-absolute end-0 bottom-0 mb-3 me-3'
+        >
+          <FavoriteBtn productId = {id} />
+        </div>
       </Card.Body>
     </Card>
   )

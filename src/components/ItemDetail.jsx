@@ -2,6 +2,7 @@ import '../assets/styles/components/itemDetail.css';
 import { Button, Image } from "react-bootstrap";
 import { Counter } from "./Counter";
 import { useState } from "react";
+import { FavoriteBtn } from './FavoriteBtn';
 
 export const ItemDetail = ({ data, addItem }) => {
 
@@ -100,7 +101,7 @@ export const ItemDetail = ({ data, addItem }) => {
               >
                   Agregar al carrito
               </Button>
-              {/* <FavoriteBtn productId={id}/> */}
+              <FavoriteBtn productId={id}/>
           </div>
         </div>
       </div>
