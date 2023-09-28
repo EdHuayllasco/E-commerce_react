@@ -36,6 +36,9 @@ const CustomIcon = ({name, size = 24, color = 'gray'}) => {
         case 'delete':
             iconName= "bi bi-x"
             break
+        case 'logout':
+            iconName = "bi bi-box-arrow-right"
+            break
         default:
             iconName = '';
 
