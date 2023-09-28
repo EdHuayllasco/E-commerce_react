@@ -1,3 +1,4 @@
+import '../assets/styles/components/navbar.css';
 import { 
   Container, 
   Image, 
@@ -10,7 +11,6 @@ import { CartWidget } from './CartWidget';
 import { CustomIcon } from "./Icons";
 import { useState } from "react";
 import { NavLink } from 'react-router-dom';
-import '../assets/styles/components/navbar.css';
 
 import logo from '../assets/images/logo.png';
 
