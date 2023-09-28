@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap"
 import { useNavigate } from "react-router-dom"
 
 
@@ -8,11 +9,11 @@ export const Confirmation = () => {
         <h4>¡Confirmación de compra!</h4>
         <p>Felicidades su pedido se realizo con exito</p>
         <p>Para saber el estado de sus pedidos haga click en el siguiente boton</p>
-        <button 
+        <Button
           className = "bt main-btn" 
           onClick={ () => navigate('/account',{state:{option:'orders'}})}>
             Mis pedidos
-        </button>
+        </Button>
     </div>
   )
 }
