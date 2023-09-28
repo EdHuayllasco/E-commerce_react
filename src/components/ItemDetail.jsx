@@ -34,10 +34,10 @@ export const ItemDetail = ({ data, addItem }) => {
   const priceWithDiscount = price - ((price * discount) / 100);
   
 
-  const elementos = [];
+  const elements = [];
     for (const atrr in details) {
       if (details.hasOwnProperty(atrr)) {
-        elementos.push(
+        elements.push(
           <li key={atrr}>
             <strong>{atrr}:</strong>  {details[atrr]}
           </li>
@@ -109,7 +109,7 @@ export const ItemDetail = ({ data, addItem }) => {
         <hr />
         <ul>
           {
-            elementos
+            elements
           }
         </ul>
        
