@@ -1,7 +1,5 @@
-import { Navbar } from './components/Navbar'
-import { Navigate, Route, Routes } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
-import { MainRoutes } from './routes/MainRoute'
+import { MainRoutes } from './routes/MainRoutes'
 
 
 function App() {
