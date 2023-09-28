@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
+import { FormGroup, FormControl, FormLabel, Button } from 'react-bootstrap';
 import * as yup from 'yup';
 import { useAuth } from '../context/AuthContext';
 
@@ -108,7 +108,7 @@ export const Register = () => {
                   </a>
                 </span>
               </FormGroup>
-              <button type="submit" className='bt main-btn'>Crear cuenta</button>
+              <Button type="submit">Crear cuenta</Button>
           </Form>
         )}
       </Formik>

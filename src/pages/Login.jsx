@@ -1,5 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { FormGroup, FormControl, FormLabel } from 'react-bootstrap';
+import { FormGroup, FormControl, FormLabel, Button } from 'react-bootstrap';
 import * as yup from 'yup';
 import { useAuth } from '../context/AuthContext';
 
@@ -13,9 +13,6 @@ export const Login = () => {
     password: yup.string()
     .required("Ingrese una contraseña")
     .min(8,"La contraseña debe tener minímo 8 caracteres")
-    // .matches(/[0-9]/, getCharacterValidationError("La contraseña debe contener al menos un dígito"))
-    // .matches(/[a-z]/, getCharacterValidationError("La contraseña debe contener al menos una letra minúscula"))
-    // .matches(/[A-Z]/, getCharacterValidationError("La contraseña debe contener al menos una letra mayúscula"))
   });
 
   
@@ -76,7 +73,7 @@ export const Login = () => {
                   </a>
                 </span>
               </FormGroup>
-              <button type="submit" className='bt main-btn'>Iniciar Sesión</button>
+              <Button type="submit">Iniciar Sesión</Button>
           </Form>
         )}
       </Formik>
