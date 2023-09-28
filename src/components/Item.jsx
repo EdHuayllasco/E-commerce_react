@@ -1,24 +1,28 @@
-import { Card, Button } from 'react-bootstrap';
+import '../assets/styles/components/item.css';
+import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-export const Item = ({title, price, image, description, id}) => {
+export const Item = ({id, name, price, images, discount}) => {
   
 
   const navigate = useNavigate();
+  const finalPrice = Math.ceil(price - (price * discount / 100))
+
 
   const goTo = () => {
-    navigate(`/item/${id}`, { state: { title, price, image, description, id }})
+    navigate(`/item/${id}`)
   }
 
   return (
     <Card 
-      style={{ width: '18rem', cursor: 'pointer' }} 
-      className='shadow-sm p-3 mb-5 bg-white rounded'
+      style={{cursor: 'pointer' }} 
+      className='shadow-sm p-3 bg-white rounded-4 product'
       onClick = { goTo }
     >
+      <span className='discount-product'>{discount}% off</span>
       <Card.Img 
         variant="top" 
-        src = { image } 
+        src = { images[0] } 
         style={{ height: '10rem', width: '10rem', alignSelf: 'center' }} 
         className = 'm-3'
       />
@@ -28,15 +32,14 @@ export const Item = ({title, price, image, description, id}) => {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
               whiteSpace: 'nowrap',
-              textTransform: 'uppercase'
             }
           }>
-            { title }
+            { name }
           </Card.Title>
-        <Card.Text className='text-body-tertiary fs-5 fw-bolder'>{ price } $ </Card.Text>
-        <Button variant="primary w-100">
-          Buy
-        </Button>
+        <div className='price-container'>
+            <span className='price-product'>S/{price}</span>
+            <span className='price-discount'>S/{finalPrice}</span>
+        </div>  
       </Card.Body>
     </Card>
   )
