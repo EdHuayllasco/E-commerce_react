@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
 
     const totalPriceCart = cartItems.reduce((totalPrice, item) => {
-        return totalPrice + item.quantity * item.price;
+        return totalPrice + item.quantity * item.priceWithDiscount;
     }, 0);
 
     const quantityItems =  cartItems.reduce((quantity, item) => quantity + item.quantity,0);
@@ -24,14 +24,14 @@ export const CartProvider = ({ children }) => {
         })
     };
 
-     const addItem = (id, details ) => {
+     const addItem = (id, details, quantityToIncrement ) => {
         setCartItems( items => {
             if(items.find(item => item.id === id) == null ){
-                return [ ...items, { id, quantity: 1, ...details }]
+                return [ ...items, { id, quantity: quantityToIncrement, ...details }]
             } else {
                 return items.map(item => {
                     if(item.id === id) {
-                        return {...item, quantity: item.quantity + 1 }
+                        return {...item, quantity: item.quantity + quantityToIncrement }
                     } else {
                         return item
                     }
