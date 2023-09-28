@@ -3,6 +3,7 @@ import { Button, Image } from "react-bootstrap";
 import { Counter } from "./Counter";
 import { useState } from "react";
 import { FavoriteBtn } from './FavoriteBtn';
+import { useAuth } from '../context/AuthContext';
 
 export const ItemDetail = ({ data, addItem }) => {
 
@@ -16,6 +17,7 @@ export const ItemDetail = ({ data, addItem }) => {
     discount,
     id
   } = data;
+  const { user } = useAuth();
 
   const [quantityToIncrement, setQuantityToIncrement] = useState(1);
 
@@ -101,7 +103,10 @@ export const ItemDetail = ({ data, addItem }) => {
               >
                   Agregar al carrito
               </Button>
-              <FavoriteBtn productId={id}/>
+              {
+                user &&
+                <FavoriteBtn productId={id}/>
+              }
           </div>
         </div>
       </div>

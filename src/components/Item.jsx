@@ -2,12 +2,14 @@ import '../assets/styles/components/item.css';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { FavoriteBtn } from './FavoriteBtn';
+import { useAuth } from '../context/AuthContext';
 
 export const Item = ({id, name, price, images, discount}) => {
   
 
   const navigate = useNavigate();
   const finalPrice = Math.ceil(price - (price * discount / 100))
+  const { user } = useAuth();
 
 
   const goTo = () => {
@@ -43,7 +45,10 @@ export const Item = ({id, name, price, images, discount}) => {
         </div>  
         <div className='position-absolute end-0 bottom-0 mb-3 me-3'
         >
-          <FavoriteBtn productId = {id} />
+          {
+            user &&
+            <FavoriteBtn productId = {id} />
+          }
         </div>
       </Card.Body>
     </Card>
