@@ -15,14 +15,16 @@ export const ItemListContainer = () => {
     
     return (
         <>
-            <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
-            <div className='items-container'>
               {
                 (data?.length > 0)
-                  ? <ItemList data={data}/>
+                ? <>
+                    <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
+                    <div className='items-container'>
+                      <ItemList data={data}/>
+                    </div>
+                  </>
                   : <NotFound/>
               }
-            </div>
         </>
   
     )

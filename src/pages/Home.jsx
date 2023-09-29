@@ -4,6 +4,7 @@ import { Loading } from '../components/Loading';
 import { useParams } from 'react-router-dom';
 import { useFirestore } from '../hooks/useFirestore';
 import { getProductsByCategory } from '../firebase/items';
+import { NotFound } from '../components/NotFound';
 
 
 export const Home = () => {
@@ -17,14 +18,16 @@ export const Home = () => {
 
     return (
       <>
-          <h4 className='text-center text-uppercase my-5'> Todos los productos</h4>
-          <div className='items-container'>
-          {
-            ( data?.length > 0) 
-              ? <ItemList data={data} />
-              : <NotFound/>
-          }
-        </div>
-      </>
+              {
+                (data?.length > 0)
+                ? <>
+                    <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
+                    <div className='items-container'>
+                      <ItemList data={data}/>
+                    </div>
+                  </>
+                  : <NotFound/>
+              }
+        </>
     )
 }
