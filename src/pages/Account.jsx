@@ -53,7 +53,6 @@ export const Account = () => {
 
     const getFavoriteListProducts = async() => {
         let products = []
-        console.log(favorites);
 
         for (const favorite of favorites) {
             const {
@@ -70,7 +69,6 @@ export const Account = () => {
                 discount,
                 id})
             }
-            console.log(products);
         return products;
 
     }
