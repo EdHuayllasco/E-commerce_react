@@ -3,8 +3,8 @@ import { db } from "./firebaseConfig";
 
 const createOrder = async (data, email) =>  {
     try {
-        const docRef = collection(db, `orders/${email}/orders`);
-        await addDoc(docRef, data);
+        const userRef = collection(db, `orders/${email}/orders`);
+        const docRef = await addDoc(userRef, data);
         return docRef.id
     } catch (error) {
         console.log('Error al crear orden', error);
