@@ -13,7 +13,7 @@ export const Checkout = () => {
   } = useCart();
   const navigate = useNavigate();
 
-  const generateOrder = (values) => {
+  const generateOrder = async(values) => {
 
     const currentDate = new Date();
     const newOrder = {
@@ -22,9 +22,9 @@ export const Checkout = () => {
       items: cartItems,
       totalPriceOrder: totalPriceCart
     }
-    const order = createOrder(newOrder, values.email)
-    if(order) {
-      navigate('/cart/confirmation');
+    const orderId = await createOrder(newOrder, values.email)
+    if(orderId) {
+      navigate('/cart/confirmation', {state:{orderId}});
       clearCart();
 
     }
