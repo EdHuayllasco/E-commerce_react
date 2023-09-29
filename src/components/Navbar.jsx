@@ -51,18 +51,17 @@ export const Navbar = ({categories}) => {
             ))
           }
         </Nav>
+            <div className="d-flex gap-2">
         {
           user 
-          ? 
-            <div className="d-flex gap-2">
-              <UserPopOver/>
+            ? <UserPopOver/>
+            : <Button
+                onClick={openModal}>
+                Iniciar Sesión 
+              </Button>
+            } 
               <CartWidget />
             </div>
-          : <Button
-              onClick={openModal}>
-              Iniciar Sesión 
-            </Button>
-        } 
       </Container>
 
       <Offcanvas show={show} onHide={handleClose}>
