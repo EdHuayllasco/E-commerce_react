@@ -26,7 +26,7 @@ export const MainRoutes = () => {
               element={<ItemDetailContainer />}
               />
               {
-                user &
+                user &&
                   <Route 
                     path="/account" 
                     element={<Account/>}
