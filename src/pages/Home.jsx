@@ -21,7 +21,7 @@ export const Home = () => {
               {
                 (data?.length > 0)
                 ? <>
-                    <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'All products' : categoryId  }</h4>
+                    <h4 className='text-center my-5 text-uppercase'>{ (!categoryId) ? 'Todos los productos' : categoryId  }</h4>
                     <div className='items-container'>
                       <ItemList data={data}/>
                     </div>
