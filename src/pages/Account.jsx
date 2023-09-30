@@ -1,5 +1,5 @@
 import  '../assets/styles/pages/account.css';
-import { Tab, Tabs} from 'react-bootstrap';
+import { Button, Tab, Tabs} from 'react-bootstrap';
 import { useAuth } from '../context/AuthContext';
 import { useEffect, useState } from 'react';
 import { OrderList } from '../components/OrderList';
@@ -7,7 +7,7 @@ import { CustomIcon } from '../components/Icons';
 import { getOrderList } from '../firebase/orders';
 import { getProductById } from '../firebase/items';
 import { WishList } from '../components/WishList';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { Loading } from '../components/Loading';
 
 
@@ -47,8 +47,6 @@ export const Account = () => {
         }
 
         getData();
-
-    
     }, [])
 
     const getFavoriteListProducts = async() => {
@@ -101,14 +99,14 @@ export const Account = () => {
                         {
                             orders?.length > 0
                                 ? <OrderList orders = { orders } />
-                                : <p className='text-center'>No tiene Pedidos</p>
+                                : <Message message="No tienes pedidos"/>
                         }
                     </Tab>
                     <Tab eventKey="favorites" title="Favoritos" onClick={ () => setTabActive('favorites')}>
                         {
                             wishList.length > 0
                                 ? <WishList wishList={wishList}/>
-                                : <p className='text-center'>No tienes favoritos</p>
+                                : <Message message="Tu lista de deseos está vacía"/>                                    
                         }
                     </Tab>
                     
@@ -118,3 +116,16 @@ export const Account = () => {
         </div>
     )
 }
+
+
+const Message = ({message}) => {
+    const navigate = useNavigate()
+    return (
+        <div className='d-flex flex-column align-items-center p-3'>
+            {message}
+            <Button 
+                className='m-3'
+                onClick={() => navigate('/')}
+            >Ver Productos</Button>
+        </div>
+)}
