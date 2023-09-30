@@ -75,7 +75,7 @@ export const Navbar = ({categories}) => {
         <Nav className="me-auto">
           {
             categories.map(({description, id, key}) => (
-              <Nav.Link key={id} to = {key == '' ? `/${key}` : `/category/${key}`} as = { NavLink }>
+              <Nav.Link key={id} to = {key == '' ? `/${key}` : `/category/${key}`} as = { NavLink } onClick={handleClose}>
                 {description}
               </Nav.Link>
             ))
