@@ -57,7 +57,7 @@ Para configurar el proyecto en tu entorno local, sigue estos pasos:
 
 ## Link del proyecto
 
-[Heytech](https://graceful-liger-99ab19.netlify.app/)
+[Heytech](https://65179d2cc575e3608fa46a80--courageous-griffin-98744a.netlify.app/)
 
 ### Credenciales para cuenta de prueba
 
