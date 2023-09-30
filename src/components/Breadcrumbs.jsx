@@ -1,4 +1,3 @@
-// import {Breadcrumb as Bc } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import '../assets/styles/components/breadCrumb.css';
 

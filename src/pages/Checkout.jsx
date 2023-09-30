@@ -1,9 +1,8 @@
 import '../assets/styles/pages/checkout.css';
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { createOrder } from "../firebase/orders";
-import { CheckoutForm } from "../components/CheckoutForm";
-import { PurchaseSummary } from "../components/PurchaseSummary";
+import { useCart } from "../context/index";
+import { createOrder } from "../firebase/index";
+import { CheckoutForm, PurchaseSummary } from "../components/index";
 
 export const Checkout = () => {
   const { 

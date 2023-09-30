@@ -1,14 +1,10 @@
 import  '../assets/styles/pages/account.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Tab, Tabs} from 'react-bootstrap';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/index';
 import { useEffect, useState } from 'react';
-import { OrderList } from '../components/OrderList';
-import { CustomIcon } from '../components/Icons';
-import { getOrderList } from '../firebase/orders';
-import { getProductById } from '../firebase/items';
-import { WishList } from '../components/WishList';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { Loading } from '../components/Loading';
+import { OrderList, CustomIcon, WishList, Loading} from '../components/index';
+import { getOrderList, getProductById } from '../firebase/index';
 
 
 export const Account = () => {
@@ -75,7 +71,6 @@ export const Account = () => {
         return <Loading/>
     }
 
-
     return (
         <div className="account-container">
             <div
@@ -109,9 +104,7 @@ export const Account = () => {
                                 : <Message message="Tu lista de deseos está vacía"/>                                    
                         }
                     </Tab>
-                    
                 </Tabs>
-                
             </div>
         </div>
     )

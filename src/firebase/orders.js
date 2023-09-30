@@ -10,7 +10,6 @@ const createOrder = async (data, email) =>  {
         console.log('Error al crear orden', error);
         return null
     }
-
 }
 
 const getOrderList = async(email) => {

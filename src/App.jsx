@@ -1,5 +1,4 @@
-import { AuthProvider } from './context/AuthContext'
-import { CartProvider } from './context/CartContext'
+import { AuthProvider, CartProvider } from './context/index'
 import { MainRoutes } from './routes/MainRoutes'
 
 

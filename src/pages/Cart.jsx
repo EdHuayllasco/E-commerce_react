@@ -1,9 +1,9 @@
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { Button, Stack } from "react-bootstrap";
-import { CartItem } from "../components/CartItem";
-
 import '../assets/styles/pages/cart.css'; 
+import { useNavigate } from "react-router-dom";
+import { Button, Stack } from "react-bootstrap";
+import { useCart } from "../context/index";
+import { CartItem } from "../components/index";
+
 
 export const Cart = () => {
   const { 

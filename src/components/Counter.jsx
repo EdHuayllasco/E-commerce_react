@@ -4,10 +4,7 @@ export const Counter = ({quantity, setQuantity}) => {
   
 
     return (
-        <div
-            className="d-flex align-items-center justify-content-start counter"
-            
-        >
+        <div className="d-flex align-items-center justify-content-start counter">
             <button
                 className="counter-btn"
                 onClick={() => setQuantity(

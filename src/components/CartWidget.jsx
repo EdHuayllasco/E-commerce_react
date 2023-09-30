@@ -1,4 +1,4 @@
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/index"
 import { CustomIcon } from "./Icons";
 import { useNavigate } from "react-router-dom";
 

@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FormGroup, FormControl, FormLabel, Button } from 'react-bootstrap';
 import * as yup from 'yup';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/index';
 
 export const Register = () => {
 
@@ -13,8 +13,6 @@ export const Register = () => {
     email: yup.string().email('Correo electrónico inválido').required('El correo electrónico es requerido'),
     password: yup.string().required('La contraseña es requerida')
   });
-
-  
 
   return (
     <div>

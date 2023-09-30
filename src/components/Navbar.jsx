@@ -1,4 +1,7 @@
 import '../assets/styles/components/navbar.css';
+import { useState } from "react";
+import { NavLink } from 'react-router-dom';
+
 import { 
   Button,
   Container, 
@@ -8,13 +11,12 @@ import {
   Offcanvas
 } from "react-bootstrap";
 
+import logo from '../assets/images/logo.png';
+
+import { useAuth } from '../context/index';
+
 import { CartWidget } from './CartWidget';
 import { CustomIcon } from "./Icons";
-import { useState } from "react";
-import { NavLink } from 'react-router-dom';
-
-import logo from '../assets/images/logo.png';
-import { useAuth } from '../context/AuthContext';
 import { UserPopOver } from './UserPopOver';
 
 
@@ -25,8 +27,6 @@ export const Navbar = ({categories}) => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
 
   return (
 
@@ -63,7 +63,6 @@ export const Navbar = ({categories}) => {
               <CartWidget />
             </div>
       </Container>
-
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>

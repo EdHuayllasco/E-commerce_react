@@ -18,7 +18,6 @@ export const CartProvider = ({ children }) => {
 
     const quantityItems =  cartItems.reduce((quantity, item) => quantity + item.quantity,0);
       
-  
     const deleteItem = (id) => {
         setCartItems( items => {
             return items.filter(item => item.id !== id)

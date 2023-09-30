@@ -1,8 +1,10 @@
 import '../assets/styles/components/item.css';
 import { Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+
+import { useAuth } from '../context/index';
+
 import { FavoriteBtn } from './FavoriteBtn';
-import { useAuth } from '../context/AuthContext';
 
 export const Item = ({id, name, price, images, discount}) => {
   

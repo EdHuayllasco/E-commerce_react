@@ -1,14 +1,14 @@
 import { Route, Routes, BrowserRouter, Navigate} from 'react-router-dom'
 
 import MainLayout from '../layout/MainLayout';
-import { ItemListContainer, ItemDetailContainer, Home } from '../pages/index';
+import { ItemListContainer, ItemDetailContainer, Home, Account } from '../pages/index';
 import { CartRoutes } from './CartRoutes';
-import { Account } from '../pages/Account';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/index';
 
 export const MainRoutes = () => {
 
   const { user } = useAuth()
+  
   return (
     <BrowserRouter>
       <MainLayout>

@@ -1,9 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom"
-import { Cart } from "../pages/Cart"
-import { Checkout } from "../pages/Checkout"
-import { Confirmation } from "../pages/Confirmation"
-import { Breadcrumb } from "../components/Breadcrumbs"
-import { useCart } from "../context/CartContext"
+import { Cart, Checkout, Confirmation } from "../pages/index"
+import { Breadcrumb } from "../components/index"
+import { useCart } from "../context/index"
 
 export const CartRoutes = () => {
   const { 

@@ -1,8 +1,10 @@
 import '../assets/styles/components/cartItem.css';
 import { Image} from "react-bootstrap";
-import { CustomIcon } from "./Icons";
-import { useCart } from "../context/CartContext";
 import { useNavigate} from "react-router-dom";
+
+import { useCart } from "../context/index";
+
+import { CustomIcon } from "./Icons";
 
 export const CartItem = ({ 
   image, 

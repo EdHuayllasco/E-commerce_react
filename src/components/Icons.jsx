@@ -2,16 +2,6 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
-const FavoriteIcon = () => {
-    return <i className="bi bi-heart"/>
-}
-
-const FavoriteIconFill = () => {
-    return <i className="bi bi-heart-fill"/>
-}
-
-
-
 const CustomIcon = ({name, size = 24, color = 'gray'}) => {
     let iconName;
     switch(name) {
@@ -56,7 +46,5 @@ const CustomIcon = ({name, size = 24, color = 'gray'}) => {
 
 
 export { 
-    FavoriteIcon,
-    FavoriteIconFill,
     CustomIcon
 }

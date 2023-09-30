@@ -9,7 +9,6 @@ import {
     getDoc,
 } from "firebase/firestore";
 
-
 const getProductsByCategory = async (category) => {
     
     let documents;

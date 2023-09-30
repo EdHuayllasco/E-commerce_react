@@ -6,7 +6,6 @@ import {
     getDocs, 
 } from "firebase/firestore";
 
-
 const getCategories = async () => {
     
     const data = [];
@@ -20,9 +19,6 @@ const getCategories = async () => {
 
     return data;
 }
-
-
-
 
 export {
     getCategories

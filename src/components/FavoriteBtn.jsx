@@ -1,8 +1,9 @@
 import { useState } from "react"
-import { CustomIcon  } from "./Icons"
-import { useAuth } from "../context/AuthContext";
 import { addFavoriteProduct, deleteFavoriteProduct } from "../firebase/favorites";
+
+import { useAuth } from "../context/index";
 import { favoriteProduct } from "../utils/favorites";
+import { CustomIcon  } from "./Icons"
 
 export const FavoriteBtn = ({ productId }) => {
   

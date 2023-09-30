@@ -1,9 +1,7 @@
-import { ItemList } from '../components/ItemList'
 import { useParams } from 'react-router-dom';
-import { useFirestore } from '../hooks/useFirestore';
-import { getProductsByCategory } from '../firebase/items';
-import { Loading } from '../components/Loading';
-import { NotFound } from '../components/NotFound';
+import { ItemList, Loading, NotFound } from '../components/index'
+import { useFirestore } from '../hooks/index';
+import { getProductsByCategory } from '../firebase/index';
 
 export const ItemListContainer = () => {
 

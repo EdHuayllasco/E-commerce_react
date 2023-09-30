@@ -1,12 +1,13 @@
 import '../assets/styles/components/itemDetail.css';
 import { Button, Image } from "react-bootstrap";
-import { Counter } from "./Counter";
 import { useState } from "react";
+
+import { useAuth } from '../context/index';
+
+import { Counter } from "./Counter";
 import { FavoriteBtn } from './FavoriteBtn';
-import { useAuth } from '../context/AuthContext';
 
 export const ItemDetail = ({ data, addItem }) => {
-
   
   const { 
     name, 
@@ -17,6 +18,7 @@ export const ItemDetail = ({ data, addItem }) => {
     discount,
     id
   } = data;
+  
   const { user } = useAuth();
 
   const [quantityToIncrement, setQuantityToIncrement] = useState(1);
@@ -34,9 +36,9 @@ export const ItemDetail = ({ data, addItem }) => {
   }
 
   const imagesQuantity = images.length;
+
   const priceWithDiscount = price - ((price * discount) / 100);
   
-
   const elements = [];
     for (const atrr in details) {
       if (details.hasOwnProperty(atrr)) {

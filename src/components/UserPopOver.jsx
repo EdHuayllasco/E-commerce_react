@@ -1,8 +1,9 @@
 import '../assets/styles/components/userPopOver.css';
 import { useEffect, useRef, useState } from 'react'
-import { CustomIcon } from './Icons'
-import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+
+import { CustomIcon } from './Icons'
+import { useAuth } from '../context/index';
 
 
 export const UserPopOver = () => {
@@ -37,9 +38,6 @@ export const UserPopOver = () => {
     setOpen(false)
   }
   
-
- 
-  
   return (
     <div className='position-relative' ref={dropDownRef}>   
       <div 
@@ -51,7 +49,6 @@ export const UserPopOver = () => {
           <div className="py-2 px-4 border-bottom">
               { email}
           </div>
-            
             <ul
             className='m-0 ul-options'  
             style={{
@@ -70,7 +67,6 @@ export const UserPopOver = () => {
               </li>
             </ul>
         </div>
-
     </div>
   );
 }

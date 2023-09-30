@@ -1,7 +1,7 @@
+import success from '../assets/images/completing.svg'
 import { Button, Image } from "react-bootstrap"
 import { useLocation, useNavigate } from "react-router-dom"
-import { useAuth } from "../context/AuthContext";
-import success from '../assets/images/completing.svg'
+import { useAuth } from "../context/index";
 
 
 export const Confirmation = () => {

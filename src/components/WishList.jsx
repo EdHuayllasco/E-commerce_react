@@ -1,4 +1,4 @@
-import { Item } from "../components/Item"
+import { Item } from "./Item"
 
 export const WishList = ({wishList}) => {
   return (
@@ -8,7 +8,6 @@ export const WishList = ({wishList}) => {
                 <Item key = {item.id}  { ...item }/>
             ))
         }
-
     </div>
   )
 }

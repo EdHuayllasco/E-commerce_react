@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap"
-import { useCart } from "../context/CartContext";
+import { useCart } from "../context/index";
 
 export const CartControlButtons = ({ item }) => {
 

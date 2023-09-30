@@ -1,12 +1,11 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { FormGroup, FormControl, FormLabel, Button } from 'react-bootstrap';
 import * as yup from 'yup';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/index';
 
 export const Login = () => {
 
-    const { signIn, setForm } = useAuth();
-
+  const { signIn, setForm } = useAuth();
 
   const schema = yup.object().shape({
     email: yup.string().email('Correo electrónico inválido').required('Ingrese un correo electrónico'),
@@ -14,8 +13,6 @@ export const Login = () => {
     .required("Ingrese una contraseña")
     .min(8,"La contraseña debe tener minímo 8 caracteres")
   });
-
-  
 
   return (
     <div>

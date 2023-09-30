@@ -1,11 +1,8 @@
-import { Container, Row, Col, Image, Button} from "react-bootstrap"
 import { useLocation, useParams } from "react-router-dom";
-import { useCart } from "../context/CartContext";
-import { NotFound } from "../components/NotFound";
-import { useFirestore } from "../hooks/useFirestore";
-import { getProductById } from "../firebase/items";
-import { Loading } from "../components/Loading";
-import { ItemDetail } from "../components/ItemDetail";
+import { useCart } from "../context/index";
+import { NotFound, Loading, ItemDetail } from "../components/index";
+import { useFirestore } from "../hooks/index";
+import { getProductById } from "../firebase/index";
 
 export const ItemDetailContainer = () => {
 
